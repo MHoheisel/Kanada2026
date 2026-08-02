@@ -526,6 +526,29 @@ document
 
 displayCurrentTripDay();
 
+const todoBoxes =
+document.querySelectorAll('.save');
+
+todoBoxes.forEach((box,index)=>{
+
+const saved =
+localStorage.getItem("todo"+index);
+
+if(saved==="true"){
+box.checked=true;
+}
+
+box.addEventListener("change",()=>{
+
+localStorage.setItem(
+"todo"+index,
+box.checked
+);
+
+});
+
+});
+  
 </script>
 
 </body>
