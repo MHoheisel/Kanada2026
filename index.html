@@ -141,7 +141,15 @@ font-weight:600;
 .maplink:hover{
 background:#2e7d32;
 }
-  
+  .card p{
+line-height:1.5;
+margin:8px 0;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
 </style>
 </head>
 <body>
@@ -154,6 +162,7 @@ background:#2e7d32;
 <nav>
 <button onclick="showPage('dashboard')">🏠 Home</button>
 <button onclick="showPage('reise')">🗓 Reise</button>
+<button onclick="showPage('tage')">🍁 Tagesplan</button>
 <button onclick="showPage('buchungen')">✅ Buchungen</button>
 <button onclick="showPage('hotels')">🏨 Hotels</button>
 <button onclick="showPage('todo')">☑️ ToDos</button>
@@ -229,8 +238,78 @@ placeholder="Ort suchen..."
 </div>
 
 </div>
+  
+<div id="tage" class="page">
 
-<div id="buchungen" class="page">
+<div class="card">
+<h2>09.08. Vancouver</h2>
+<p><b>🏨 Hotel:</b> Exchange Hotel Vancouver</p>
+<p><b>📍 Highlights:</b> Stanley Park, Granville Island, Gastown</p>
+</div>
+
+<div class="card">
+<h2>10.08. Nanaimo</h2>
+<p><b>🏨 Hotel:</b> Travelodge by Wyndham Nanaimo</p>
+<p><b>📍 Highlights:</b> BC Ferries, Harbourfront Walkway</p>
+</div>
+
+<div class="card">
+<h2>11.-12.08. Telegraph Cove</h2>
+<p><b>🏨 Hotel:</b> Telegraph Cove Resort</p>
+<p><b>📍 Highlights:</b> Cathedral Grove, Whale Watching</p>
+</div>
+
+<div class="card">
+<h2>13.08. Campbell River</h2>
+<p><b>🏨 Hotel:</b> Dolphins Resort</p>
+<p><b>📍 Highlights:</b> Kayak Tour 09:30</p>
+</div>
+
+<div class="card">
+<h2>14.-16.08. Knight Inlet</h2>
+<p><b>🏨 Hotel:</b> Knight Inlet Lodge</p>
+<p><b>📍 Highlights:</b> Floatplane, Grizzly-Bären</p>
+</div>
+
+<div class="card">
+<h2>18.-19.08. Whistler</h2>
+<p><b>🏨 Hotel:</b> Delta Marriott Whistler</p>
+<p><b>📍 Highlights:</b> Peak2Peak Gondola, Lost Lake</p>
+</div>
+
+<div class="card">
+<h2>20.-22.08. Wells Gray</h2>
+<p><b>🏨 Hotel:</b> Wells Gray Guest Ranch</p>
+<p><b>📍 Highlights:</b> Helmcken Falls, Rafting</p>
+</div>
+
+<div class="card">
+<h2>23.-25.08. Jasper</h2>
+<p><b>🏨 Hotel:</b> Pyramid Lake Lodge</p>
+<p><b>📍 Highlights:</b> Maligne Lake Cruise, Miette Hot Springs</p>
+</div>
+
+<div class="card">
+<h2>26.-27.08. Lake Louise</h2>
+<p><b>🏨 Hotel:</b> Paradise Lodge</p>
+<p><b>📍 Highlights:</b> Glacier Walk, Moraine Lake</p>
+</div>
+
+<div class="card">
+<h2>28.-29.08. Banff</h2>
+<p><b>🏨 Hotel:</b> The Kenrick Hotel</p>
+<p><b>📍 Highlights:</b> Open Top Touring, Banff Gondola</p>
+</div>
+
+<div class="card">
+<h2>30.08.-01.09. Cochrane</h2>
+<p><b>🏨 Hotel:</b> Canalta Hotel Cochrane</p>
+<p><b>📍 Highlights:</b> Canmore, Cochrane, Rückflug Calgary</p>
+</div>
+
+</div>
+  
+  <div id="buchungen" class="page">
 
 <div class="card">
 
