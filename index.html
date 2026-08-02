@@ -503,8 +503,59 @@ KayakBC Waiver
 </div>
 
 </div>
+  
+<div id="geheimtipps" class="page">
 
-<footer>
+<div class="card">
+<h2>🐻 Vancouver Island</h2>
+<ul>
+<li>Chemainus Murals</li>
+<li>Little Qualicum Falls</li>
+<li>Broughton Archipelago</li>
+<li>Ripple Rock Trail</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🏔 Whistler</h2>
+<ul>
+<li>Nairn Falls</li>
+<li>Brandywine Meadows</li>
+<li>Joffre Lakes</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🌲 Wells Gray</h2>
+<ul>
+<li>Azure Lake</li>
+<li>Mahood Falls</li>
+<li>Murtle Lake</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🦌 Jasper</h2>
+<ul>
+<li>Valley of the Five Lakes</li>
+<li>Pocahontas Coal Mines</li>
+<li>Punch Bowl Falls</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🏞 Banff</h2>
+<ul>
+<li>Ink Pots</li>
+<li>Wapta Falls</li>
+<li>Grassi Lakes</li>
+<li>Vermilion Lakes</li>
+</ul>
+</div>
+
+</div>
+  
+  <footer>
 
 Kanada Reise 2026 🍁
 
@@ -760,6 +811,63 @@ box.checked
 
 });
   
+  const tripSchedule = [
+
+["2026-08-09","Vancouver","Exchange Hotel","Stanley Park & Granville Island"],
+["2026-08-10","Nanaimo","Travelodge Nanaimo","BC Ferries & Harbourfront"],
+["2026-08-11","Telegraph Cove","Telegraph Cove Resort","Cathedral Grove"],
+["2026-08-12","Telegraph Cove","Telegraph Cove Resort","Whale Watching 09:00"],
+["2026-08-13","Campbell River","Dolphins Resort","Kayak Tour 09:30"],
+["2026-08-14","Knight Inlet","Knight Inlet Lodge","Floatplane & Bären"],
+["2026-08-15","Knight Inlet","Knight Inlet Lodge","Bear Viewing"],
+["2026-08-16","Campbell River","Dolphins Resort","Elk Falls"],
+["2026-08-17","Campbell River","Dolphins Resort","Angelausflug"],
+["2026-08-18","Whistler","Delta Marriott","Sea To Sky"],
+["2026-08-19","Whistler","Delta Marriott","Peak2Peak"],
+["2026-08-20","Wells Gray","Guest Ranch","Anreise"],
+["2026-08-21","Wells Gray","Guest Ranch","Helmcken Falls"],
+["2026-08-22","Wells Gray","Guest Ranch","Rafting"],
+["2026-08-23","Jasper","Pyramid Lake Lodge","Mount Robson"],
+["2026-08-24","Jasper","Pyramid Lake Lodge","Maligne Lake Cruise"],
+["2026-08-25","Jasper","Pyramid Lake Lodge","Miette Hot Springs"],
+["2026-08-26","Lake Louise","Paradise Lodge","Glacier Walk"],
+["2026-08-27","Lake Louise","Paradise Lodge","Moraine Lake"],
+["2026-08-28","Banff","Kenrick Hotel","Open Top Touring"],
+["2026-08-29","Banff","Kenrick Hotel","Banff Gondola"],
+["2026-08-30","Cochrane","Canalta Hotel","Canmore"],
+["2026-08-31","Cochrane","Canalta Hotel","Calgary"],
+["2026-09-01","Calgary","Rückflug","Heimreise"]
+
+];
+
+function updateTodayCard(){
+
+const today =
+new Date().toISOString().slice(0,10);
+
+const trip =
+tripSchedule.find(x => x[0] === today);
+
+if(trip){
+
+document.getElementById("todayTripCard").innerHTML = `
+<h3>${trip[1]}</h3>
+<p><b>🏨 Hotel:</b> ${trip[2]}</p>
+<p><b>📍 Programm:</b> ${trip[3]}</p>
+`;
+
+}else{
+
+document.getElementById("todayTripCard").innerHTML = `
+<p>Heute liegt kein Reisetag in der Planung.</p>
+`;
+
+}
+
+}
+
+updateTodayCard();
+
 </script>
 
 </body>
