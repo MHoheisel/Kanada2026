@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kanada 2026</title>
+
+<title>🍁 Kanada 2026</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f8f5;
-    margin: 0;
-    padding: 20px;
+body{
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+margin:0;
+background:#f5f7f6;
+color:#222;
 }
 
-header {
-    text-align: center;
-    color: #1b5e20;
+header{
+background:#1b5e20;
+color:white;
+padding:20px;
+text-align:center;
 }
 
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+nav{
+display:flex;
+overflow:auto;
+background:white;
+border-bottom:1px solid #ddd;
 }
 
-h1 {
-    margin-bottom: 5px;
+nav button{
+border:none;
+background:none;
+padding:15px;
+font-size:16px;
+cursor:pointer;
 }
 
-h2 {
-    color: #1b5e20;
+section{
+display:none;
+padding:15px;
 }
 
-ul {
-    padding-left: 20px;
+section.active{
+display:block;
 }
 
-.hotel {
-    color: #1565c0;
-    font-weight: bold;
+.card{
+background:white;
+padding:15px;
+border-radius:12px;
+margin-bottom:15px;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
-.activity {
-    color: #2e7d32;
+h2{
+margin-top:0;
+color:#1b5e20;
 }
 
-footer {
-    text-align: center;
-    margin-top: 30px;
-    color: gray;
+.checklist label{
+display:block;
+margin-bottom:10px;
+}
+
+.hotel{
+font-weight:bold;
+color:#1565c0;
 }
 </style>
 </head>
@@ -58,51 +73,114 @@ footer {
 <body>
 
 <header>
-    <h1>🍁 Kanada 2026</h1>
-    <p>Familie Hoheisel</p>
+<h1>🍁 Kanada 2026</h1>
+<p>9. August – 1. September 2026</p>
 </header>
 
-<div class="card">
-    <h2>Reiseübersicht</h2>
+<nav>
+<button onclick="showTab('heute')">Heute</button>
+<button onclick="showTab('reise')">Reise</button>
+<button onclick="showTab('buchungen')">Buchungen</button>
+<button onclick="showTab('todos')">ToDos</button>
+</nav>
 
-    <ul>
-        <li>09.08 Vancouver</li>
-        <li>10.08 Nanaimo</li>
-        <li>11.-12.08 Telegraph Cove</li>
-        <li>13.08 Campbell River</li>
-        <li>14.-16.08 Knight Inlet Lodge</li>
-        <li>18.-19.08 Whistler</li>
-        <li>20.-22.08 Wells Gray</li>
-        <li>23.-25.08 Jasper</li>
-        <li>26.-27.08 Lake Louise</li>
-        <li>28.-29.08 Banff</li>
-        <li>30.08-01.09 Cochrane</li>
-    </ul>
+<section id="heute" class="active">
+
+<div class="card">
+<h2>Willkommen</h2>
+<p>Kanada Reisebegleiter Familie Hoheisel</p>
 </div>
 
 <div class="card">
-    <h2>Nächste gebuchte Aktivitäten</h2>
-
-    <ul>
-        <li class="activity">🐋 Whale Watching – 12.08. 09:00</li>
-        <li class="activity">🛶 Kayak Tour – 13.08. 09:30</li>
-        <li class="activity">🐻 Knight Inlet Lodge</li>
-        <li class="activity">🎣 Angelausflug – 17.08.</li>
-        <li class="activity">🌊 Rafting – 22.08. 13:00</li>
-    </ul>
+<h2>Nächste Highlights</h2>
+<ul>
+<li>🐋 Whale Watching 12.08. 09:00</li>
+<li>🛶 Kayak Tour 13.08. 09:30</li>
+<li>🐻 Knight Inlet Lodge</li>
+<li>🌊 Rafting 22.08. 13:00</li>
+</ul>
 </div>
+
+</section>
+
+<section id="reise">
 
 <div class="card">
-    <h2>Aktuelles Hotel</h2>
+<h2>Reiseroute</h2>
 
-    <p class="hotel">
-        Exchange Hotel Vancouver
-    </p>
+<ul>
+<li>09.08 Vancouver</li>
+<li>10.08 Nanaimo</li>
+<li>11.-12.08 Telegraph Cove</li>
+<li>13.08 Campbell River</li>
+<li>14.-16.08 Knight Inlet Lodge</li>
+<li>16.-17.08 Dolphins Resort</li>
+<li>18.-19.08 Whistler</li>
+<li>20.-22.08 Wells Gray</li>
+<li>23.-25.08 Jasper</li>
+<li>26.-27.08 Lake Louise</li>
+<li>28.-29.08 Banff</li>
+<li>30.08-01.09 Cochrane</li>
+</ul>
 </div>
 
-<footer>
-    Kanada Reise 2026 🍁
-</footer>
+</section>
+
+<section id="buchungen">
+
+<div class="card">
+<h2>✅ Gebucht</h2>
+
+<ul>
+<li>12.08 Whale Watching 09:00</li>
+<li>13.08 Kayak Tour 09:30</li>
+<li>17.08 Angelausflug</li>
+<li>22.08 Rafting 13:00</li>
+<li>24.08 Maligne Lake Cruise 10:00</li>
+<li>26.08 Glacier Walk 10:00</li>
+<li>27.08 Moraine Shuttle</li>
+<li>28.08 Open Top Touring 14:00</li>
+</ul>
+
+</div>
+
+</section>
+
+<section id="todos">
+
+<div class="card checklist">
+
+<h2>Offene Punkte</h2>
+
+<label><input type="checkbox"> Jasper SkyTram reservieren</label>
+
+<label><input type="checkbox"> Banff Gondola reservieren</label>
+
+<label><input type="checkbox"> Whale-Watching Waiver</label>
+
+<label><input type="checkbox"> KayakBC Waiver</label>
+
+<label><input type="checkbox"> Trail Status Jasper prüfen</label>
+
+</div>
+
+</section>
+
+<script>
+
+function showTab(id){
+
+document
+.querySelectorAll("section")
+.forEach(s => s.classList.remove("active"));
+
+document
+.getElementById(id)
+.classList.add("active");
+
+}
+
+</script>
 
 </body>
 </html>
