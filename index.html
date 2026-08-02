@@ -158,7 +158,15 @@ color:#666;
 
 <div class="card">
 
-<h2>Aktueller Reiseplan</h2>
+<h2>Heutiger Reisetag</h2>
+
+<div id="todayTrip">
+
+Reisetag wird berechnet ...
+
+</div>
+
+</div>
 
 <p>Vancouver → Nanaimo → Telegraph Cove → Knight Inlet → Whistler → Jasper → Lake Louise → Banff → Cochrane</p>
 
@@ -320,6 +328,203 @@ Math.ceil(
 document.getElementById("countdown")
 .innerText =
 diff + " Tage";
+  
+const tripDays = [
+
+{
+date:"09.08.2026",
+place:"Vancouver",
+hotel:"Exchange Hotel",
+activity:"Ankunft, Stanley Park, Granville Island"
+},
+
+{
+date:"10.08.2026",
+place:"Nanaimo",
+hotel:"Travelodge Nanaimo",
+activity:"BC Ferries, Harbourfront"
+},
+
+{
+date:"11.08.2026",
+place:"Telegraph Cove",
+hotel:"Telegraph Cove Resort",
+activity:"Cathedral Grove"
+},
+
+{
+date:"12.08.2026",
+place:"Telegraph Cove",
+hotel:"Telegraph Cove Resort",
+activity:"Whale Watching 09:00"
+},
+
+{
+date:"13.08.2026",
+place:"Campbell River",
+hotel:"Dolphins Resort",
+activity:"Kayak Tour 09:30"
+},
+
+{
+date:"14.08.2026",
+place:"Knight Inlet",
+hotel:"Knight Inlet Lodge",
+activity:"Floatplane & Bärenbeobachtung"
+},
+
+{
+date:"15.08.2026",
+place:"Knight Inlet",
+hotel:"Knight Inlet Lodge",
+activity:"Bear Viewing"
+},
+
+{
+date:"16.08.2026",
+place:"Campbell River",
+hotel:"Dolphins Resort",
+activity:"Elk Falls"
+},
+
+{
+date:"17.08.2026",
+place:"Campbell River",
+hotel:"Dolphins Resort",
+activity:"Angelausflug 15:00"
+},
+
+{
+date:"18.08.2026",
+place:"Whistler",
+hotel:"Delta Marriott",
+activity:"Sea-To-Sky Highway"
+},
+
+{
+date:"19.08.2026",
+place:"Whistler",
+hotel:"Delta Marriott",
+activity:"Peak2Peak Gondola"
+},
+
+{
+date:"20.08.2026",
+place:"Wells Gray",
+hotel:"Wells Gray Guest Ranch",
+activity:"Anreise"
+},
+
+{
+date:"21.08.2026",
+place:"Wells Gray",
+hotel:"Wells Gray Guest Ranch",
+activity:"Helmcken Falls"
+},
+
+{
+date:"22.08.2026",
+place:"Wells Gray",
+hotel:"Wells Gray Guest Ranch",
+activity:"Rafting 13:00"
+},
+
+{
+date:"23.08.2026",
+place:"Jasper",
+hotel:"Pyramid Lake Lodge",
+activity:"Mount Robson"
+},
+
+{
+date:"24.08.2026",
+place:"Jasper",
+hotel:"Pyramid Lake Lodge",
+activity:"Maligne Lake Cruise 10:00"
+},
+
+{
+date:"25.08.2026",
+place:"Jasper",
+hotel:"Pyramid Lake Lodge",
+activity:"Miette Hot Springs"
+},
+
+{
+date:"26.08.2026",
+place:"Lake Louise",
+hotel:"Paradise Lodge",
+activity:"Glacier Walk 10:00"
+},
+
+{
+date:"27.08.2026",
+place:"Lake Louise",
+hotel:"Paradise Lodge",
+activity:"Moraine Lake Shuttle"
+},
+
+{
+date:"28.08.2026",
+place:"Banff",
+hotel:"Kenrick Hotel",
+activity:"Open Top Touring"
+},
+
+{
+date:"29.08.2026",
+place:"Banff",
+hotel:"Kenrick Hotel",
+activity:"Banff Gondola"
+},
+
+{
+date:"30.08.2026",
+place:"Cochrane",
+hotel:"Canalta Hotel",
+activity:"Canmore & Cochrane"
+}
+
+];
+
+function displayCurrentTripDay(){
+
+const now = new Date();
+
+const start = new Date("2026-08-09");
+
+const dayNumber =
+Math.floor(
+(now-start)/(1000*60*60*24)
+);
+
+if(dayNumber >=0 && dayNumber < tripDays.length){
+
+const d = tripDays[dayNumber];
+
+document
+.getElementById("todayTrip")
+.innerHTML =
+`
+<h3>${d.place}</h3>
+<p><b>🏨 Hotel:</b> ${d.hotel}</p>
+<p><b>📍 Programm:</b> ${d.activity}</p>
+`;
+
+}else{
+
+document
+.getElementById("todayTrip")
+.innerHTML =
+`
+<p>Reise noch nicht gestartet oder bereits beendet.</p>
+`;
+
+}
+
+}
+
+displayCurrentTripDay();
 
 </script>
 
