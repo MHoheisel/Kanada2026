@@ -183,6 +183,8 @@ min-width:110px;
 <button onclick="showPage('tickets')">🎫 Tickets</button>
 <button onclick="showPage('heute')">📅 Heute</button>
 <button onclick="showPage('kontakte')">📞 Kontakte</button>
+<button onclick="showPage('wetter')">🌤 Wetter</button>
+<button onclick="showPage('dokumente')">📄 Dokumente</button>  
 </nav>
   
 <div id="dashboard" class="page active">
@@ -233,9 +235,11 @@ Whistler → Jasper → Lake Louise → Banff → Cochrane
 <h2>Reiseroute</h2>
 
 <input
+id="routeSearch"
 class="search"
 type="text"
 placeholder="Ort suchen..."
+onkeyup="filterRoute()"
 >
 
 <ul>
@@ -305,7 +309,17 @@ placeholder="Ort suchen..."
 <div class="card">
 <h2>23.-25.08. Jasper</h2>
 <p><b>🏨 Hotel:</b> Pyramid Lake Lodge</p>
-<p><b>📍 Highlights:</b> Maligne Lake Cruise, Miette Hot Springs</p>
+<p><b>📍 Highlights:</b>
+Maligne Lake Cruise,
+Medicine Lake,
+Valley of the Five Lakes,
+Miette Hot Springs
+</p>
+
+<p><b>⚠️ Hinweis:</b>
+Maligne Canyon bleibt geschlossen
+</p>
+Das entspricht Ihrem Reiseplan. 1
 </div>
 
 <div class="card">
@@ -614,7 +628,50 @@ KayakBC Waiver
 </div>
 
 </div>
-  
+
+<div id="wetter" class="page">
+
+<div class="card">
+
+<h2>🌤 Wetterdienste</h2>
+
+https://weather.gc.ca
+Kanadischer Wetterdienst
+</a>
+
+<br><br>
+
+https://www.theweathernetwork.com
+The Weather Network
+</a>
+
+</div>
+
+</div>
+
+<div id="dokumente" class="page">
+
+<div class="card">
+
+<h2>📄 Reiseunterlagen</h2>
+
+<ul>
+<li>BC Ferries Buchung</li>
+<li>Whale Watching Ticket</li>
+<li>Kayak Tour Buchung</li>
+<li>Rafting Voucher</li>
+<li>Moraine Lake Shuttle</li>
+<li>Maligne Lake Cruise</li>
+</ul>
+
+<p>
+Später können hier PDFs hinterlegt werden.
+</p>
+
+</div>
+
+</div>
+    
   <footer>
 
 Kanada Reise 2026 🍁
@@ -928,6 +985,32 @@ document.getElementById("todayTripCard").innerHTML = `
 
 updateTodayCard();
 
+function filterRoute(){
+
+const input =
+document
+.getElementById("routeSearch")
+.value
+.toLowerCase();
+
+document
+.querySelectorAll("#reise li")
+.forEach(li=>{
+
+if(
+li.innerText
+.toLowerCase()
+.includes(input)
+){
+li.style.display="";
+}else{
+li.style.display="none";
+}
+
+});
+
+}
+  
 </script>
 
 </body>
