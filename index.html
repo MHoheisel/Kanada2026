@@ -1,184 +1,333 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>🍁 Kanada 2026</title>
+<title>🍁 Kanada 2026 Companion</title>
 
 <style>
+
+:root{
+--green:#1b5e20;
+--light:#f4f7f5;
+--card:#ffffff;
+--accent:#2e7d32;
+}
+
 body{
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 margin:0;
-background:#f5f7f6;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+background:var(--light);
 color:#222;
 }
 
 header{
-background:#1b5e20;
+background:linear-gradient(135deg,#1b5e20,#388e3c);
 color:white;
-padding:20px;
+padding:25px;
 text-align:center;
+}
+
+h1{
+margin:0;
 }
 
 nav{
 display:flex;
-overflow:auto;
+overflow-x:auto;
 background:white;
+position:sticky;
+top:0;
+z-index:100;
 border-bottom:1px solid #ddd;
 }
 
 nav button{
+flex:1;
+padding:14px;
 border:none;
-background:none;
-padding:15px;
-font-size:16px;
-cursor:pointer;
+background:white;
+font-size:15px;
+font-weight:600;
 }
 
-section{
+nav button:hover{
+background:#f1f1f1;
+}
+
+.page{
 display:none;
 padding:15px;
 }
 
-section.active{
+.active{
 display:block;
 }
 
 .card{
 background:white;
-padding:15px;
-border-radius:12px;
+padding:16px;
 margin-bottom:15px;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
+border-radius:14px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-h2{
+.card h2{
 margin-top:0;
-color:#1b5e20;
+color:var(--green);
 }
 
-.checklist label{
-display:block;
-margin-bottom:10px;
+.countdown{
+font-size:32px;
+font-weight:bold;
+color:#1b5e20;
+text-align:center;
 }
 
 .hotel{
 font-weight:bold;
 color:#1565c0;
 }
+
+.activity{
+padding:8px 0;
+border-bottom:1px solid #eee;
+}
+
+.activity:last-child{
+border-bottom:none;
+}
+
+input[type=checkbox]{
+transform:scale(1.2);
+margin-right:8px;
+}
+
+.search{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#666;
+}
+
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>🍁 Kanada 2026</h1>
-<p>9. August – 1. September 2026</p>
+<p>Familie Hoheisel</p>
 </header>
 
 <nav>
-<button onclick="showTab('heute')">Heute</button>
-<button onclick="showTab('reise')">Reise</button>
-<button onclick="showTab('buchungen')">Buchungen</button>
-<button onclick="showTab('todos')">ToDos</button>
+<button onclick="showPage('dashboard')">🏠 Home</button>
+<button onclick="showPage('reise')">🗓 Reise</button>
+<button onclick="showPage('buchungen')">✅ Buchungen</button>
+<button onclick="showPage('hotels')">🏨 Hotels</button>
+<button onclick="showPage('todo')">☑️ ToDos</button>
 </nav>
 
-<section id="heute" class="active">
+Dashboard
+Direkt darunter einfügen:
+<div id="dashboard" class="page active">
 
 <div class="card">
-<h2>Willkommen</h2>
-<p>Kanada Reisebegleiter Familie Hoheisel</p>
+
+<h2>Countdown</h2>
+
+<div class="countdown" id="countdown"></div>
+
 </div>
 
 <div class="card">
+
 <h2>Nächste Highlights</h2>
-<ul>
-<li>🐋 Whale Watching 12.08. 09:00</li>
-<li>🛶 Kayak Tour 13.08. 09:30</li>
-<li>🐻 Knight Inlet Lodge</li>
-<li>🌊 Rafting 22.08. 13:00</li>
-</ul>
+
+<div class="activity">🐋 Whale Watching • 12.08.2026 • 09:00</div>
+<div class="activity">🛶 Kayak Tour • 13.08.2026 • 09:30</div>
+<div class="activity">🐻 Knight Inlet Lodge</div>
+<div class="activity">🌊 Rafting • 22.08.2026 • 13:00</div>
+
 </div>
 
-</section>
+<div class="card">
 
-<section id="reise">
+<h2>Aktueller Reiseplan</h2>
+
+<p>Vancouver → Nanaimo → Telegraph Cove → Knight Inlet → Whistler → Jasper → Lake Louise → Banff → Cochrane</p>
+
+</div>
+
+</div>
+
+Reiseübersicht
+<div id="reise" class="page">
 
 <div class="card">
+
 <h2>Reiseroute</h2>
 
+<input
+class="search"
+type="text"
+placeholder="Ort suchen..."
+>
+
 <ul>
+
 <li>09.08 Vancouver</li>
 <li>10.08 Nanaimo</li>
-<li>11.-12.08 Telegraph Cove</li>
+<li>11.–12.08 Telegraph Cove</li>
 <li>13.08 Campbell River</li>
-<li>14.-16.08 Knight Inlet Lodge</li>
-<li>16.-17.08 Dolphins Resort</li>
-<li>18.-19.08 Whistler</li>
-<li>20.-22.08 Wells Gray</li>
-<li>23.-25.08 Jasper</li>
-<li>26.-27.08 Lake Louise</li>
-<li>28.-29.08 Banff</li>
-<li>30.08-01.09 Cochrane</li>
+<li>14.–16.08 Knight Inlet Lodge</li>
+<li>18.–19.08 Whistler</li>
+<li>20.–22.08 Wells Gray</li>
+<li>23.–25.08 Jasper</li>
+<li>26.–27.08 Lake Louise</li>
+<li>28.–29.08 Banff</li>
+<li>30.08–01.09 Cochrane</li>
+
 </ul>
+
 </div>
 
-</section>
+</div>
 
-<section id="buchungen">
+Buchungen
+<div id="buchungen" class="page">
 
 <div class="card">
-<h2>✅ Gebucht</h2>
+
+<h2>Gebuchte Aktivitäten</h2>
 
 <ul>
-<li>12.08 Whale Watching 09:00</li>
-<li>13.08 Kayak Tour 09:30</li>
-<li>17.08 Angelausflug</li>
-<li>22.08 Rafting 13:00</li>
-<li>24.08 Maligne Lake Cruise 10:00</li>
-<li>26.08 Glacier Walk 10:00</li>
-<li>27.08 Moraine Shuttle</li>
-<li>28.08 Open Top Touring 14:00</li>
+<li>✅ Whale Watching</li>
+<li>✅ Kayak Tour</li>
+<li>✅ Knight Inlet Lodge</li>
+<li>✅ Angelausflug</li>
+<li>✅ Rafting</li>
+<li>✅ Maligne Lake Cruise</li>
+<li>✅ Glacier Walk</li>
+<li>✅ Moraine Shuttle</li>
+<li>✅ Open Top Touring</li>
 </ul>
 
 </div>
 
-</section>
+</div>
 
-<section id="todos">
+Hotels
+<div id="hotels" class="page">
 
-<div class="card checklist">
+<div class="card">
+<div class="hotel">Exchange Hotel Vancouver</div>
+</div>
 
-<h2>Offene Punkte</h2>
+<div class="card">
+<div class="hotel">Travelodge Nanaimo</div>
+</div>
 
-<label><input type="checkbox"> Jasper SkyTram reservieren</label>
+<div class="card">
+<div class="hotel">Telegraph Cove Resort</div>
+</div>
 
-<label><input type="checkbox"> Banff Gondola reservieren</label>
+<div class="card">
+<div class="hotel">Knight Inlet Lodge</div>
+</div>
 
-<label><input type="checkbox"> Whale-Watching Waiver</label>
+<div class="card">
+<div class="hotel">Pyramid Lake Lodge</div>
+</div>
 
-<label><input type="checkbox"> KayakBC Waiver</label>
+<div class="card">
+<div class="hotel">Paradise Lodge</div>
+</div>
 
-<label><input type="checkbox"> Trail Status Jasper prüfen</label>
+<div class="card">
+<div class="hotel">The Kenrick Hotel</div>
+</div>
 
 </div>
 
-</section>
+To-do-Liste mit Speicherung
+<div id="todo" class="page">
+
+<div class="card">
+
+<h2>Offene Aufgaben</h2>
+
+<label>
+<input type="checkbox" class="save">
+Jasper SkyTram reservieren
+</label>
+<br>
+
+<label>
+<input type="checkbox" class="save">
+Banff Gondola reservieren
+</label>
+<br>
+
+<label>
+<input type="checkbox" class="save">
+Whale Watching Waiver
+</label>
+<br>
+
+<label>
+<input type="checkbox" class="save">
+KayakBC Waiver
+</label>
+
+</div>
+
+</div>
+
+Abschluss
+Ganz unten einfügen:
+<footer>
+
+Kanada Reise 2026 🍁
+
+</footer>
 
 <script>
 
-function showTab(id){
+function showPage(id){
 
 document
-.querySelectorAll("section")
-.forEach(s => s.classList.remove("active"));
+.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
 
 document
 .getElementById(id)
-.classList.add("active");
+.classList.add('active');
 
 }
+
+const departure =
+new Date("2026-08-09");
+
+const today =
+new Date();
+
+const diff =
+Math.ceil(
+(departure-today)
+/(1000*60*60*24)
+);
+
+document.getElementById("countdown")
+.innerText =
+diff + " Tage";
 
 </script>
 
